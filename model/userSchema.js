@@ -42,7 +42,6 @@ userSchema.pre('save', async function (next) {
   return next();
 });
 
-// FIXME: Check if these methods are working as expected
 userSchema.methods = {
   //method for generating the jwt token
   jwtToken() {
@@ -53,7 +52,6 @@ userSchema.methods = {
     );
   },
 
-  //userSchema method for generating and return forgotPassword token
   getForgotPasswordToken() {
     const forgotToken = crypto.randomBytes(20).toString('hex');
     //step 1 - save to DB
@@ -62,10 +60,8 @@ userSchema.methods = {
       .update(forgotToken)
       .digest('hex');
 
-    /// forgot password expiry date
     this.forgotPasswordExpiryDate = Date.now() + 20 * 60 * 1000; // 20min
 
-    //step 2 - return values to user
     return forgotToken;
   },
 };
