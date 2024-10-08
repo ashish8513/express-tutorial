@@ -1,9 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'
-import bookRoute from './route/book.route.js'
 import cors from 'cors'
-import userRoute from './route/user.route.js'
 
 const app = express();
 app.use(cors())
@@ -27,8 +25,6 @@ try {
     console.log("Error:", error)
 }
 // defining route
-app.use("/book", bookRoute)
-app.use("/user", userRoute)
 
 
 app.listen(PORT, () => {
