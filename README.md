@@ -45,8 +45,6 @@ npm install
 4. Start the server
 After installing the dependencies, start the Express server:
 
-bash
-Copy code
 npm start
 Alternatively, if you are using nodemon (for automatic restarts on file changes), you can run:
 
